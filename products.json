@@ -1,0 +1,302 @@
+[
+  {
+    "id": "mmm7b3yu-741729",
+    "name": "RL Supreme White",
+    "price": 40,
+    "category": "Boxers",
+    "images": [
+      "/uploads/rl_supreme_white_-1773243352807-946033.jpg"
+    ],
+    "createdAt": "2026-03-11T15:35:53.047Z"
+  },
+  {
+    "id": "mmm7teg0-894119",
+    "name": "WL Calvin Black",
+    "price": 40,
+    "category": "Boxers",
+    "images": [
+      "/uploads/wl_calvin_black-1773244206431-854760.jpg"
+    ],
+    "createdAt": "2026-03-11T15:50:06.432Z"
+  },
+  {
+    "id": "mmm7u36g-774049",
+    "name": "GL Calvin White",
+    "price": 40,
+    "category": "Boxers",
+    "images": [
+      "/uploads/gl_calvin_white-1773244238487-97952.jpg"
+    ],
+    "createdAt": "2026-03-11T15:50:38.488Z"
+  },
+  {
+    "id": "mmm7umc8-623528",
+    "name": "BL Supreme White",
+    "price": 40,
+    "category": "Boxers",
+    "images": [
+      "/uploads/bl_supreme_white-1773244263319-425782.jpg"
+    ],
+    "createdAt": "2026-03-11T15:51:03.321Z"
+  },
+  {
+    "id": "mmm7wd4e-888522",
+    "name": "WL Calvin White",
+    "price": 40,
+    "category": "Boxers",
+    "images": [
+      "/uploads/wl_calvin_black-1773244344455-143659.jpg"
+    ],
+    "createdAt": "2026-03-11T15:52:24.686Z"
+  },
+  {
+    "id": "mmm7wsxz-82696",
+    "name": "BL Chrome Black",
+    "price": 40,
+    "category": "Boxers",
+    "images": [
+      "/uploads/bl_chrome_black-1773244365191-439285.jpg"
+    ],
+    "createdAt": "2026-03-11T15:52:45.192Z"
+  },
+  {
+    "id": "mmm7y7fl-146348",
+    "name": "BL Chrome White",
+    "price": 40,
+    "category": "Boxers",
+    "images": [
+      "/uploads/bl_chrome_white-1773244430624-347635.jpg"
+    ],
+    "createdAt": "2026-03-11T15:53:50.625Z"
+  },
+  {
+    "id": "mmm7ypc0-54224",
+    "name": "BL Supreme Black",
+    "price": 40,
+    "category": "Boxers",
+    "images": [
+      "/uploads/bl_supreme_black-1773244453823-144490.jpg"
+    ],
+    "createdAt": "2026-03-11T15:54:13.824Z"
+  },
+  {
+    "id": "mmm81bvt-287144",
+    "name": "BL Chrome Grey",
+    "price": 40,
+    "category": "Boxers",
+    "images": [
+      "/uploads/bl_chrome_grey-1773244576359-180213.jpeg"
+    ],
+    "createdAt": "2026-03-11T15:56:16.361Z"
+  },
+  {
+    "id": "mmm8e12z-138901",
+    "name": "Circa Neon Bundle",
+    "price": 150,
+    "category": "Earrings Bundle",
+    "images": [
+      "/uploads/circa_neons-1773245168888-571877.jpg"
+    ],
+    "createdAt": "2026-03-11T16:06:08.891Z"
+  },
+  {
+    "id": "mmm8eezv-60530",
+    "name": "NYC BUNDLE",
+    "price": 150,
+    "category": "Earrings Bundle",
+    "images": [
+      "/uploads/nyc-1773245186920-636016.jpg"
+    ],
+    "createdAt": "2026-03-11T16:06:26.923Z"
+  },
+  {
+    "id": "mmm8extx-753934",
+    "name": "LOS ANGELES BUNDLE",
+    "price": 150,
+    "category": "Earrings Bundle",
+    "images": [
+      "/uploads/los_angeles-1773245211328-521206.jpeg"
+    ],
+    "createdAt": "2026-03-11T16:06:51.333Z"
+  },
+  {
+    "id": "mmm8fgtm-639112",
+    "name": "Obsidia Grids Bundle",
+    "price": 150,
+    "category": "Earrings Bundle",
+    "images": [
+      "/uploads/obsidia_grids-1773245235944-705514.jpg"
+    ],
+    "createdAt": "2026-03-11T16:07:15.946Z"
+  },
+  {
+    "id": "mmm8fxla-738915",
+    "name": "Edge Chrome Bundle",
+    "price": 150,
+    "category": "Earrings Bundle",
+    "images": [
+      "/uploads/edge_chrome-1773245257674-218386.jpg"
+    ],
+    "createdAt": "2026-03-11T16:07:37.678Z"
+  },
+  {
+    "id": "mmm8gald-386448",
+    "name": "Lucid Bundle",
+    "price": 150,
+    "category": "Earrings Bundle",
+    "images": [
+      "/uploads/lucid_bundle-1773245274527-804467.jpg"
+    ],
+    "createdAt": "2026-03-11T16:07:54.529Z"
+  },
+  {
+    "id": "mmm8gr88-248938",
+    "name": "Flares expo Bundle",
+    "price": 150,
+    "category": "Earrings Bundle",
+    "images": [
+      "/uploads/flares_bundle-1773245296086-875245.jpg"
+    ],
+    "createdAt": "2026-03-11T16:08:16.088Z"
+  },
+  {
+    "id": "mmm8xv4g-287321",
+    "name": "Orbital Studs",
+    "price": 25,
+    "category": "Earrings",
+    "images": [
+      "/uploads/orbittal_studs-1773246094287-44418.jpg"
+    ],
+    "createdAt": "2026-03-11T16:21:34.288Z"
+  },
+  {
+    "id": "mmm8y880-620120",
+    "name": "Los Angeles Studs",
+    "price": 25,
+    "category": "Earrings",
+    "images": [
+      "/uploads/los_angeles_studs-1773246111263-773137.jpeg"
+    ],
+    "createdAt": "2026-03-11T16:21:51.264Z"
+  },
+  {
+    "id": "mmm8ynnz-731813",
+    "name": "Circa Venta Studs",
+    "price": 25,
+    "category": "Earrings",
+    "images": [
+      "/uploads/circle_venta_studs-1773246131278-357980.jpg"
+    ],
+    "createdAt": "2026-03-11T16:22:11.279Z"
+  },
+  {
+    "id": "mmm8z3eq-775310",
+    "name": "Volex Blocky Studs",
+    "price": 25,
+    "category": "Earrings",
+    "images": [
+      "/uploads/voltex_blocky_stud-1773246151679-823200.jpg"
+    ],
+    "createdAt": "2026-03-11T16:22:31.682Z"
+  },
+  {
+    "id": "mmm8zk53-566460",
+    "name": "Chrome Rounds Studs",
+    "price": 25,
+    "category": "Earrings",
+    "images": [
+      "/uploads/rounded_chrome-1773246173366-164781.jpg"
+    ],
+    "createdAt": "2026-03-11T16:22:53.367Z"
+  },
+  {
+    "id": "mmm8zwgw-924414",
+    "name": "Edgy Chrome",
+    "price": 25,
+    "category": "Earrings",
+    "images": [
+      "/uploads/edge_chrome_studs-1773246189342-702111.jpg"
+    ],
+    "createdAt": "2026-03-11T16:23:09.344Z"
+  },
+  {
+    "id": "mmm90ave-979076",
+    "name": "Bunny Playboy Studs",
+    "price": 25,
+    "category": "Earrings",
+    "images": [
+      "/uploads/bunny-1773246208007-449600.jpeg"
+    ],
+    "createdAt": "2026-03-11T16:23:28.010Z"
+  },
+  {
+    "id": "mmm90mzc-978601",
+    "name": "Gridded Mesh Studs",
+    "price": 25,
+    "category": "Earrings",
+    "images": [
+      "/uploads/grid_mesh-1773246223702-846158.jpeg"
+    ],
+    "createdAt": "2026-03-11T16:23:43.704Z"
+  },
+  {
+    "id": "mmm9sb3h-653590",
+    "name": "Vanilla Lace VS",
+    "price": 190,
+    "category": "Perfume",
+    "images": [
+      "/uploads/647649647_1197997652181650_34411161905633230_n-1773247514449-681886.jpg"
+    ],
+    "createdAt": "2026-03-11T16:45:14.669Z"
+  },
+  {
+    "id": "mmm9t338-984043",
+    "name": "Love Spell VS",
+    "price": 190,
+    "category": "Perfume",
+    "images": [
+      "/uploads/647600484_1400509081390159_4981819622399354048_n-1773247550945-584583.jpg"
+    ],
+    "createdAt": "2026-03-11T16:45:50.948Z"
+  },
+  {
+    "id": "mmm9tqrd-452372",
+    "name": "Bare Vanilla VS",
+    "price": 190,
+    "category": "Perfume",
+    "images": [
+      "/uploads/647209637_26342734105360724_3905080498123604422_n-1773247581623-322378.jpg"
+    ],
+    "createdAt": "2026-03-11T16:46:21.625Z"
+  },
+  {
+    "id": "mmm9ubmh-468466",
+    "name": "Cake Confetti VS",
+    "price": 190,
+    "category": "Perfume",
+    "images": [
+      "/uploads/648417737_1336542524900166_3913479422594059204_n-1773247608663-879931.jpg"
+    ],
+    "createdAt": "2026-03-11T16:46:48.665Z"
+  },
+  {
+    "id": "mmm9wo6x-584279",
+    "name": "Fresh Mint VS",
+    "price": 190,
+    "category": "Perfume",
+    "images": [
+      "/uploads/649470244_1819782132030001_3028113009212787284_n-1773247718257-837502.jpg"
+    ],
+    "createdAt": "2026-03-11T16:48:38.265Z"
+  },
+  {
+    "id": "mmm9xkb1-8700",
+    "name": "Bomb Shell VS ",
+    "price": 190,
+    "category": "Perfume",
+    "images": [
+      "/uploads/650850013_924855833809245_7131692070465140800_n-1773247759882-441257.jpg"
+    ],
+    "createdAt": "2026-03-11T16:49:19.885Z"
+  }
+]

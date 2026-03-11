@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exist Worldwide</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div id="introOverlay" class="intro-overlay" aria-label="Intro">
+    <div class="intro-inner">
+      <h1 class="intro-title">EXIST WORLDWIDE</h1>
+      <p class="intro-subtitle">SHOP <span>NOW</span></p>
+      <button id="introShopNow" class="intro-cta">SHOP NOW</button>
+      <button id="introScrollDown" class="intro-scroll" aria-label="Scroll down">▼</button>
+    </div>
+  </div>
+
+  <header>
+    <div class="header-left">
+      <a href="#" id="brandLink" class="brand-link">
+        <h1 class="glitch" data-text="Exist Worldwide">Exist Worldwide</h1>
+      </a>
+      <p class="tagline">Elevate your Existance</p>
+    </div>
+
+    <div class="header-right">
+      <div class="filter">
+        <label for="categoryFilter">Category</label>
+        <select id="categoryFilter" onchange="filterProducts()">
+          <option value="all">All</option>
+          <option value="Boxers">Boxers</option>
+          <option value="Earrings">Earrings</option>
+          <option value="Necklace">Necklace</option>
+          <option value="Watch">Watch</option>
+          <option value="Perfume">Perfume</option>
+          <option value="Vape">Vape</option>
+          <option value="Earrings Bundle">Earrings Bundle</option>
+          <option value="Tank Tops">Tank Tops</option>
+        </select>
+      </div>
+
+      <button class="cart-btn" onclick="toggleCart()">
+        Cart <span id="cartBadge" class="badge">0</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="products" id="products"></section>
+    <section class="empty" id="emptyState" hidden>
+      <div class="empty-inner">
+        <h2>Nothing yet</h2>
+        <p>Use <a href="/admin.html">Admin</a> to add products (must be opened from this machine).</p>
+      </div>
+    </section>
+  </main>
+
+  <aside class="cart-panel" id="cartPanel">
+    <header class="cart-header">
+      <h2>Your Cart</h2>
+      <button class="close" onclick="toggleCart()" aria-label="Close cart">✕</button>
+    </header>
+
+    <div class="cart-items" id="cartItems"></div>
+
+    <div class="cart-summary">
+      <div class="total">
+        <span>Total</span>
+        <span id="cartTotal">₱0</span>
+      </div>
+      <button class="checkout" onclick="checkout()">Checkout</button>
+    </div>
+  </aside>
+
+  <div id="toast" class="toast" aria-live="polite"></div>
+
+  <div id="infoModal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-content">
+      <header class="modal-header">
+        <h2>Enter your details</h2>
+        <button class="modal-close" aria-label="Close" onclick="hideInfoModal()">✕</button>
+      </header>
+      <div class="modal-body">
+        <p>Please provide your details so we can include them in your order.</p>
+        <div class="form-row">
+          <label for="orderName">Name</label>
+          <input id="orderName" type="text" placeholder="Full name" />
+        </div>
+        <div class="form-row">
+          <label for="orderPhone">Phone Number</label>
+          <input id="orderPhone" type="tel" placeholder="Phone number" />
+        </div>
+        <div class="form-row">
+          <label for="orderAddress">Shipping Address</label>
+          <textarea id="orderAddress" placeholder="Shipping address"></textarea>
+        </div>
+      </div>
+      <footer class="modal-footer">
+        <button class="btn btn-fb" onclick="submitOrderDetails()">Submit & continue</button>
+      </footer>
+    </div>
+  </div>
+
+  <div id="orderModal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-content">
+      <header class="modal-header">
+        <h2>Copy your order</h2>
+        <button class="modal-close" aria-label="Close" onclick="hideOrderModal()">✕</button>
+      </header>
+      <div class="modal-body">
+        <p>Copy the order below and send it to our Facebook chat.</p>
+        <textarea id="orderText" readonly></textarea>
+      </div>
+      <footer class="modal-footer">
+        <button class="btn btn-copy" onclick="copyOrderText()">Copy order</button>
+        <a class="btn btn-fb" href="https://www.facebook.com/profile.php?id=61582430759387" target="_blank" rel="noopener noreferrer">Send to Facebook</a>
+      </footer>
+    </div>
+  </div>
+
+  <script src="store.js"></script>
+
+  <footer class="reseller-footer">
+    <div class="reseller-left">©All Rights Reserved Exist WorldWide 2026</div>
+    <div class="reseller-right">
+      <a class="reseller-btn" href="https://www.facebook.com/profile.php?id=61582430759387" target="_blank" rel="noopener noreferrer">
+        Join our reseller community
+      </a>
+      <button id="termsLink" class="reseller-terms" type="button">Terms &amp; Conditions</button>
+    </div>
+  </footer>
+
+  <div id="termsModal" class="modal hidden terms-modal" role="dialog" aria-modal="true">
+    <div class="modal-content">
+      <header class="modal-header">
+        <h2>Terms &amp; Conditions</h2>
+        <button class="modal-close" aria-label="Close" onclick="hideTermsModal()">✕</button>
+      </header>
+      <div class="modal-body">
+        <p>The rules for Exist WorldWide Reseller Hub are:</p>
+        <ul>
+          <li>PRICES MAY CHANGE FROM TIME TO TIME</li>
+          <li>NO CANCELLATIONS once payment is confirmed.</li>
+          <li>NO RETURNS for change of mind, wrong size, wrong design, or buyer’s mistake.</li>
+        </ul>
+
+        <h3>WRONG / MISSING ITEMS</h3>
+        <ul>
+          <li>Must be reported within 24 HOURS of delivery.</li>
+          <li>A FULL unboxing video from start is REQUIRED.</li>
+          <li>No unboxing video = NO replacement.</li>
+        </ul>
+
+        <h3>DAMAGED ITEMS</h3>
+        <ul>
+          <li>Crystal cases and minor earring flaws are NOT replaceable.</li>
+          <li>Items are checked and packed securely before shipping.</li>
+          <li>Courier mishandling is beyond our control and not our responsibility.</li>
+        </ul>
+
+        <h3>LOST PARCELS</h3>
+        <ul>
+          <li>Refund or resend ONLY after courier confirms the parcel is lost.</li>
+          <li>Courier investigation and confirmation may take up to 15 working days.</li>
+        </ul>
+
+        <h3>SHIPPING &amp; DELAYS</h3>
+        <ul>
+          <li>Once tracking is provided, delays are courier-related.</li>
+          <li>Weather, holidays, peak seasons, or courier backlog may cause delays.</li>
+          <li>Delivery timelines are ESTIMATES, not guarantees.</li>
+        </ul>
+
+        <h3>PROCESSING TIME</h3>
+        <ul>
+          <li>2–3 days allotted for sorting, packing, and shipping before dispatch.</li>
+          <li>Payments made after cut-off are processed the next working day.</li>
+        </ul>
+
+        <h3>OUT-OF-STOCK ITEMS</h3>
+        <ul>
+          <li>If no backup design is provided, we will choose a replacement.</li>
+          <li>Replacement will be selected from best-selling or in-demand designs.</li>
+          <li>Notes will be added to your order if a replacement was chosen.</li>
+        </ul>
+
+        <h3>REPLACEMENTS</h3>
+        <ul>
+          <li>Replacements are usually shipped with your next order.</li>
+          <li>Immediate shipment requires an additional shipping fee.</li>
+        </ul>
+
+        <h3>PRICING</h3>
+        <ul>
+          <li>Prices are FINAL once ordered.</li>
+          <li>No price adjustments after purchase, even if prices change later.</li>
+        </ul>
+
+        <h3>BUYER RESPONSIBILITY</h3>
+        <ul>
+          <li>Incorrect address or contact details are the buyer’s responsibility.</li>
+          <li>Always double-check the order form before payment.</li>
+        </ul>
+
+        <h3>COMMUNITY CONDUCT &amp; COMMUNICATION</h3>
+        <ul>
+          <li>This page is for WHOLESALE &amp; RESELLERS only.</li>
+          <li>Be respectful to admins and members at all times.</li>
+          <li>No profanity, harassment, spam, fake orders, or disruptive behavior.</li>
+          <li>Order concerns, delays, or issues must be raised PRIVATELY with admins.</li>
+          <li>Public accusations, panic messages, or reputation-damaging statements are not allowed.</li>
+          <li>Repeated follow-ups will not speed up processing.</li>
+        </ul>
+
+        <h3>DISCIPLINARY SYSTEM (STRICTLY ENFORCED)</h3>
+        <ul>
+          <li>FIRST OFFENSE: 24-hour mute</li>
+          <li>SECOND OFFENSE: 48-hour mute</li>
+          <li>THIRD OFFENSE: Permanent removal from the group</li>
+          <li>This applies to:
+            <ul>
+              <li>Bad language or disrespect</li>
+              <li>Spam or flooding</li>
+              <li>Public accusations or false claims</li>
+              <li>Ignoring group rules or admin instructions</li>
+            </ul>
+          </li>
+        </ul>
+
+        <h3>ADMIN AUTHORITY</h3>
+        <ul>
+          <li>Admin decisions regarding orders, delays, replacements, and enforcement are FINAL.</li>
+          <li>Abuse of policies or repeated violations may result in immediate removal without further notice.</li>
+        </ul>
+      </div>
+      <footer class="modal-footer">
+        <button class="btn" onclick="hideTermsModal()">Close</button>
+      </footer>
+    </div>
+  </div>
+</body>
+
+</html>
