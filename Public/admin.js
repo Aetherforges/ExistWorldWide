@@ -9,6 +9,13 @@ const formMessage = document.getElementById("formMessage")
 const loginSection = document.getElementById("loginSection")
 const adminSection = document.getElementById("adminSection")
 const logoutBtn = document.getElementById("logoutBtn")
+const submitProductBtn = document.getElementById("submitProductBtn")
+const cancelEditBtn = document.getElementById("cancelEditBtn")
+const imagesInput = document.getElementById("images")
+const imagesHint = document.getElementById("imagesHint")
+const costInput = document.getElementById("cost")
+
+let editingProductId = null
 
 function showMessage(el, text, type = "info") {
   if (!el) return
@@ -34,6 +41,31 @@ function setLoggedInState(loggedIn) {
     adminSection.hidden = true
     logoutBtn.style.display = "none"
   }
+}
+
+function setEditMode(product) {
+  editingProductId = product.id
+
+  productForm.elements["name"].value = product.name || ""
+  productForm.elements["price"].value = product.price ?? ""
+  costInput.value = product.cost ?? ""
+  productForm.elements["category"].value = product.category || ""
+
+  imagesInput.required = false
+  imagesHint.textContent = "Upload a new image to replace the current one (optional)."
+  submitProductBtn.textContent = "Save changes"
+  cancelEditBtn.hidden = false
+
+  productForm.scrollIntoView({ behavior: "smooth", block: "start" })
+}
+
+function clearEditMode() {
+  editingProductId = null
+  productForm.reset()
+  imagesInput.required = true
+  imagesHint.textContent = "Upload exactly 1 image."
+  submitProductBtn.textContent = "Add Product"
+  cancelEditBtn.hidden = true
 }
 
 async function refreshAdminData() {
@@ -129,6 +161,7 @@ function renderProducts(products) {
   productsContainer.innerHTML = products
     .map((p) => {
       const img = p.images && p.images.length ? p.images[0] : "https://via.placeholder.com/240x160?text=No+Image"
+      const costValue = Number(p.cost || 0)
       return `
         <div class="admin-card">
           <div class="admin-card-image">
@@ -141,9 +174,11 @@ function renderProducts(products) {
             </div>
             <div class="admin-card-meta">
               <span class="category">${p.category}</span>
+              <span class="cost">Cost: ₱${costValue.toFixed(2)}</span>
               <span class="created">${new Date(p.createdAt).toLocaleString()}</span>
             </div>
             <div class="admin-card-actions">
+              <button class="edit" data-id="${p.id}">✏️ Edit</button>
               <button class="delete" data-id="${p.id}">🗑️ Delete</button>
             </div>
           </div>
@@ -151,6 +186,15 @@ function renderProducts(products) {
       `
     })
     .join("")
+
+  productsContainer.querySelectorAll("button.edit").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const id = btn.dataset.id
+      const product = products.find((p) => p.id === id)
+      if (!product) return
+      setEditMode(product)
+    })
+  })
 
   productsContainer.querySelectorAll("button.delete").forEach((btn) => {
     btn.addEventListener("click", () => {
@@ -184,14 +228,26 @@ productForm.addEventListener("submit", async (event) => {
   const formData = new FormData(productForm)
   const files = formData.getAll("images").filter((f) => f && f.name)
 
-  if (files.length !== 1) {
-    showMessage(formMessage, "Please upload exactly 1 image.", "error")
-    return
+  if (!editingProductId) {
+    if (files.length !== 1) {
+      showMessage(formMessage, "Please upload exactly 1 image.", "error")
+      return
+    }
+  } else {
+    if (files.length > 1) {
+      showMessage(formMessage, "Please upload at most 1 image.", "error")
+      return
+    }
   }
 
+  const endpoint = editingProductId
+    ? `/admin/products/${encodeURIComponent(editingProductId)}`
+    : "/admin/products"
+  const method = editingProductId ? "PUT" : "POST"
+
   try {
-    const res = await fetch("/admin/products", {
-      method: "POST",
+    const res = await fetch(endpoint, {
+      method,
       headers: getAuthHeaders(),
       credentials: "include",
       body: formData,
@@ -199,12 +255,16 @@ productForm.addEventListener("submit", async (event) => {
 
     const body = await res.json()
     if (!res.ok) {
-      showMessage(formMessage, body.error || "Failed to add product.", "error")
+      showMessage(formMessage, body.error || "Failed to save product.", "error")
       return
     }
 
-    productForm.reset()
-    showMessage(formMessage, "Product added successfully.", "success")
+    clearEditMode()
+    showMessage(
+      formMessage,
+      editingProductId ? "Product updated successfully." : "Product added successfully.",
+      "success"
+    )
     loadProducts()
   } catch (err) {
     console.error(err)
@@ -227,4 +287,11 @@ logoutBtn?.addEventListener("click", (event) => {
   logout()
 })
 
+cancelEditBtn?.addEventListener("click", (event) => {
+  event.preventDefault()
+  clearEditMode()
+})
+
 checkAuth()
+
+clearEditMode()

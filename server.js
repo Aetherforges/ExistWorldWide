@@ -314,6 +314,68 @@ app.delete("/admin/products/:id", requireAuth, (req, res) => {
   res.json({ success: true })
 })
 
+app.put(
+  "/admin/products/:id",
+  requireAuth,
+  upload.single("images"),
+  (req, res) => {
+    const { id } = req.params
+    const { name, price, category, cost } = req.body || {}
+    const file = req.file
+
+    if (!name || !price || !category) {
+      if (file) {
+        try {
+          fs.unlinkSync(file.path)
+        } catch (err) {
+          /* ignore */
+        }
+      }
+      return res.status(400).json({ error: "Missing name, price, or category" })
+    }
+
+    const products = loadProducts()
+    const index = products.findIndex((p) => p.id === id)
+    if (index === -1) {
+      if (file) {
+        try {
+          fs.unlinkSync(file.path)
+        } catch (err) {
+          /* ignore */
+        }
+      }
+      return res.status(404).json({ error: "Product not found" })
+    }
+
+    const product = products[index]
+
+    if (file) {
+      ;(product.images || []).forEach((img) => {
+        const filePath = path.join(__dirname, img.replace("/uploads/", ""))
+        try {
+          if (fs.existsSync(filePath)) {
+            fs.unlinkSync(filePath)
+          }
+        } catch (err) {
+          /* ignore */
+        }
+      })
+      product.images = [`/uploads/${file.filename}`]
+    }
+
+    product.name = name.toString()
+    product.price = Number(price) || 0
+    product.cost = Number(cost) || 0
+    product.category = category.toString()
+    product.updatedAt = new Date().toISOString()
+
+    products[index] = product
+    saveProducts(products)
+
+    res.json(product)
+  }
+)
+
 app.listen(3000, () => {
   console.log("Server running on http://localhost:3000")
 })

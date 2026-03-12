@@ -76,13 +76,14 @@
           </div>
 
           <div class="form-row">
-            <label for="images">Image (required)</label>
+            <label for="images">Image <span class="optional">(required for new products)</span></label>
             <input id="images" name="images" type="file" accept="image/*" required />
-            <p class="hint">Upload exactly 1 image.</p>
+            <p class="hint" id="imagesHint">Upload exactly 1 image.</p>
           </div>
 
           <div class="form-actions">
-            <button type="submit">Add Product</button>
+            <button type="submit" id="submitProductBtn">Add Product</button>
+            <button type="button" id="cancelEditBtn" class="secondary" hidden>Cancel</button>
           </div>
 
           <div id="formMessage" class="form-message" role="alert"></div>
